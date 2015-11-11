@@ -1,0 +1,28 @@
+{
+  "name": "SM",
+  "homepage": "https://github.com/Nosthertus/SM",
+  "authors": [
+    "Nosthertus <darkfreak17@hotmail.com>"
+  ],
+  "description": "Social Media project test",
+  "main": "",
+  "moduleType": [],
+  "keywords": [
+    "test",
+    "social-media"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-bootstrap": "~0.14.3",
+    "bootstrap": "~3.3.5",
+    "angular": "~1.4.7",
+    "jquery": "~2.1.4"
+  }
+}
