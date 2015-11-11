@@ -12,7 +12,7 @@
 
 	<link href="dist/css/main.css" rel="stylesheet">
 </head>
-<body>
+<body ng-controller="MainController">
 	<nav class="navbar navbar-inverse navbar-fixed-top">
 		<div class="container">
 			<div class="navbar-header">
@@ -35,8 +35,7 @@
 	</nav>
 
 	<div id="main" class="container">
-		<div class="main-template">
-		</div>
+		<div ng-view></div>
 	</div>
 
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -44,8 +43,11 @@
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
 	<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 	<script src="bower_components/angular/angular.js"></script>
+	<script src="bower_components/angular-route/angular-route.js"></script>
 	<script src="bower_components/angular-bootstrap/ui-bootstrap.js"></script>
 
 	<script src="dist/js/app.js"></script>
+	<script src="dist/js/MainController.js"></script>
+	<script src="dist/js/LoginController.js"></script>
 </body>
 </html>
