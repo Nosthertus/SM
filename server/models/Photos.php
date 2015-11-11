@@ -1,0 +1,94 @@
+<?php
+
+namespace app\models;
+
+use Yii;
+
+/**
+ * This is the model class for table "photos".
+ *
+ * @property string $id
+ * @property string $photos_name
+ * @property string $photos_path
+ * @property resource $photos_caption
+ * @property string $photos_date
+ * @property string $photos_time
+ * @property string $accounts_id
+ *
+ * @property Accounts $accounts
+ * @property UserHasPhotos[] $userHasPhotos
+ * @property User[] $users
+ */
+class Photos extends \yii\db\ActiveRecord
+{
+    /**
+     * @inheritdoc
+     */
+    public static function tableName()
+    {
+        return 'photos';
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function rules()
+    {
+        return [
+            [['photos_path', 'photos_date', 'photos_time', 'accounts_id'], 'required'],
+            [['photos_caption'], 'string'],
+            [['photos_date', 'photos_time'], 'safe'],
+            [['accounts_id'], 'integer'],
+            [['photos_name', 'photos_path'], 'string', 'max' => 90]
+        ];
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function attributeLabels()
+    {
+        return [
+            'id' => 'ID',
+            'photos_name' => 'Photos Name',
+            'photos_path' => 'Photos Path',
+            'photos_caption' => 'Photos Caption',
+            'photos_date' => 'Photos Date',
+            'photos_time' => 'Photos Time',
+            'accounts_id' => 'Accounts ID',
+        ];
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getAccounts()
+    {
+        return $this->hasOne(Accounts::className(), ['id' => 'accounts_id']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getUserHasPhotos()
+    {
+        return $this->hasMany(UserHasPhotos::className(), ['photos_id' => 'id']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getUsers()
+    {
+        return $this->hasMany(User::className(), ['id' => 'user_id'])->viaTable('user_has_photos', ['photos_id' => 'id']);
+    }
+
+    /**
+     * @inheritdoc
+     * @return \app\models\query\PhotosQuery the active query used by this AR class.
+     */
+    public static function find()
+    {
+        return new \app\models\query\PhotosQuery(get_called_class());
+    }
+}
