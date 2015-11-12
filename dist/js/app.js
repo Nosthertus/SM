@@ -6,5 +6,9 @@
 			controller: 'LoginController',
 			templateUrl: 'views/login.html'
 		});
+		$routeProvider.when('/site', {
+			//controller: 'LoginController',
+			templateUrl: 'views/site.html'
+		});
 	}]);
 })(angular);
