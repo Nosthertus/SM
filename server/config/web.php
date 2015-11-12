@@ -26,11 +26,15 @@ $config = [
             'enableStrictParsing' => true,
             'showScriptName' => false,
             'rules' => [
-                ['class' => 'yii\rest\UrlRule', 'controller' => 'user'],
+                [
+                    'class' => 'yii\rest\UrlRule',
+                    'pluralize'=>false, 
+                    'extraPatterns'=>[
+                        'POST access'=>'access'
+                    ],
+                    'controller' => ['user', 'account'],
+                ],
             ],
-        ],
-        'errorHandler' => [
-            'errorAction' => 'site/error',
         ],
         'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',

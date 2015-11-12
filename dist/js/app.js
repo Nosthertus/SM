@@ -1,13 +1,10 @@
 (function(angular){
-	var app = angular.module('SM', ['ui.bootstrap', 'ngRoute']);
+	var app = angular.module('SM', ['ui.bootstrap', 'ngRoute', 'ngResource']);
 
 	app.config(['$routeProvider', function($routeProvider){
-		$routeProvider.when('/', {
-			redirectTo: '/login',
-		})
-		.when('/login', {
+		$routeProvider.when('/login', {
 			controller: 'LoginController',
 			templateUrl: 'views/login.html'
-		})
+		});
 	}]);
-})(angular)
+})(angular);

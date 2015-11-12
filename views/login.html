@@ -1,3 +1,12 @@
+<div uib-collapse="hasErrors">
+	<div class="well">
+		<ul ng-repeat="attribute in errors">
+			<li ng-repeat="message in attribute">
+				{{message}}
+			</li>
+		</ul>
+	</div>
+</div>
 <form ng-submit="submit()">
 	<div class="form-group">
 		<label for="Username">Username</label>
