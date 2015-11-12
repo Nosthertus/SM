@@ -8,16 +8,19 @@
 	<div class="col-md-1">
 	</div>
 	<div class="col-md-4">
-		<ul class="nav nav-pills">
+		<!-- <ul class="nav nav-pills">
 			<li class="active">
 				<a href>Loging</a>
 			</li>
 			<li>
 				<a href>Sign Up</a>
 			</li>
-		</ul>
-	</div>
-	<div class="col-md-2">
+		</ul> -->
+		<uib-tabset>
+			<uib-tab ng-repeat="tab in menu" heading="{{tab.header}}">
+				<ng-include src="tab.view"></ng-include>
+			</uib-tab>
+		</uib-tabset>
 	</div>
 </div>
 	

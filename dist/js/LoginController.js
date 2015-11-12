@@ -5,7 +5,7 @@
 		$scope.username = null;
 		$scope.password = null;
 
-		$scope.hasErrors = true;
+		$scope.hasErrors = false;
 
 		$scope.errors = {};
 
@@ -19,8 +19,12 @@
 			UserService.login(login, function(success, errors){
 				if(!success)
 				{
-					$scope.hasErrors = false;
+					$scope.hasErrors = true;
 					$scope.errors = errors;
+				}
+
+				else{
+					$scope.hasErrors = false;
 				}
 			});
 		};

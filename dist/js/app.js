@@ -6,7 +6,7 @@
 			controller: 'LoginController',
 			templateUrl: 'views/login.html'
 		});
-		$routeProvider.when('/site', {
+		$routeProvider.when('/', {
 			//controller: 'LoginController',
 			templateUrl: 'views/site.html'
 		});
