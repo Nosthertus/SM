@@ -7,8 +7,8 @@
 			templateUrl: 'views/login.html'
 		});
 		$routeProvider.when('/', {
-			//controller: 'LoginController',
-			templateUrl: 'views/site.html'
+			controller: 'SiteController',
+			templateUrl: 'views/site/index.html'
 		});
 	}]);
 })(angular);
