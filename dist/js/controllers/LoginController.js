@@ -5,9 +5,11 @@
 		$scope.username = null;
 		$scope.password = null;
 
-		$scope.hasErrors = false;
-
-		$scope.errors = {};
+		$scope.message = {
+			show: false,
+			type: 'info',
+			text: ''
+		};
 
 		$scope.submit = function(){
 			
@@ -16,17 +18,31 @@
 				password: $scope.password
 			};
 
+			if($scope.message.show)
+				$scope.hideMessage();
+
 			UserService.login(login, function(success, errors){
-				if(!success)
-				{
-					$scope.hasErrors = true;
-					$scope.errors = errors;
+				if(!success){
+					for(attr in errors){
+						for(message in errors[attr])
+							$scope.message.text = errors[attr][message];
+					}
+
+					$scope.message.type = 'danger';
 				}
 
 				else{
-					$scope.hasErrors = false;
+					$scope.message.text = 'Login successful';
+
+					$scope.message.type = 'success';
 				}
+
+				$scope.message.show = true;
 			});
+		};
+
+		$scope.hideMessage = function(){
+			$scope.message.show = false;
 		};
 	}]);
 })(angular);

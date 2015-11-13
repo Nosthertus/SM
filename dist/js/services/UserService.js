@@ -33,6 +33,20 @@
 			});
 		};
 
+		self.register = function(credentials, callback){
+			var user = $resource('server/web/user');
+
+			var newUser = new user();
+
+			for(data in credentials)
+				newUser[data] = credentials[data];
+
+			newUser.$save(function(data){
+				if(callback)
+					callback(data.success, data.errors);
+			});
+		};
+
 		self.populate = function(data){
 			self._data = data;
 		};

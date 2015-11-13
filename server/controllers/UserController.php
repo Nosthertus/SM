@@ -8,6 +8,7 @@ use yii\web\Response;
 
 use app\models\User;
 use app\models\LoginForm;
+use app\models\SignupForm;
 
 class UserController extends Controller
 {
@@ -50,6 +51,31 @@ class UserController extends Controller
 		if($model->validate())
 		{
 			$response['data'] = User::find(['username'=>$post['LoginForm']['username']])->select(['id', 'username', 'email'])->one();
+
+			$response['success'] = true;
+		}
+
+		else
+			$response['errors'] = $model->getErrors();
+
+		return $response;
+	}
+
+	public function actionCreate()
+	{
+		$response = [
+			'success'=>false,
+			'errors'=>[],
+			'data'=>[]
+		];
+
+		$model = new SignupForm();
+
+		$post = $model->load(['SignupForm'=>Yii::$app->request->post()]);
+
+		if($user = $model->signup())
+		{
+			$response['data'] = $user;
 
 			$response['success'] = true;
 		}

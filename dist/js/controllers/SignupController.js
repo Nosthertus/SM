@@ -7,11 +7,13 @@
 		$scope.email = null;
 		$scope.password = null;
 		$scope.passwordRepeat = null;
-		$scope.dateBirth = null;
+		$scope.dateBirth = new Date();
 
-		$scope.hasErrors = false;
-
-		$scope.errors = {};
+		$scope.message = {
+			show: false,
+			type: 'info',
+			text: ''
+		};
 
 		$scope.date = {
 			open: false
@@ -23,10 +25,35 @@
 				lastname: $scope.lastname,
 				email: $scope.email,
 				password: $scope.password,
-				dateBirth: $scope.dateBirth
-			};
+				dateBirth: getDate($scope.dateBirth)
+			};	
 
-			console.log(signup);
+			UserService.register(signup, function(success, errors){
+				if(!success){
+					for(attr in errors){
+						for(message in errors[attr])
+							$scope.message.text = errors[attr][message];
+					}
+
+					$scope.message.type = 'danger';
+				}
+
+				else{
+					$scope.message.text = 'Signup successful';
+
+					$scope.message.type = 'success';
+				}
+
+				$scope.message.show = true;
+			});
 		};
+
+		$scope.hideMessage = function(){
+			$scope.message.show = false;
+		};
+
+		function getDate(data){
+			return data.getFullYear() + '-' + (data.getMonth() + 1) + '-' + data.getDate();
+		}
 	}]);
 })(angular);

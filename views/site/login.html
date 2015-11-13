@@ -1,12 +1,6 @@
 <div ng-controller="LoginController">
-	<div uib-collapse="!hasErrors">
-		<div class="well">
-			<ul ng-repeat="attribute in errors">
-				<li ng-repeat="message in attribute">
-					{{message}}
-				</li>
-			</ul>
-		</div>
+	<div uib-collapse="!message.show">
+		<uib-alert type="{{message.type}}" close="hideMessage()">{{message.text}}</uib-alert>
 	</div>
 	<form ng-submit="submit()">
 		<div class="form-group">
