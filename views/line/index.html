@@ -33,3 +33,27 @@
 		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto consequuntur ratione cupiditate mollitia autem maiores, eos voluptas doloremque beatae. Consequuntur non recusandae reiciendis mollitia expedita, in consectetur accusamus saepe aspernatur.
 	</div>
 </div>
+
+<script type="text/javascript">
+var notifElem;
+
+$( function() {
+  notifElem = $('#notification')[0];
+  
+  var $container = $('.packery').packery();
+  
+  $container.on( 'layoutComplete', function( event, laidOutItems ) {
+    console.log( 'Packery layout completed on ' + laidOutItems.length + ' items' );
+  });
+
+  $container.on( 'click', '.item', function( event ) {
+    // change size of item via class
+    $( event.target ).toggleClass('gigante');
+    // trigger layout
+    $container.packery();
+  });
+
+
+});
+
+</script>

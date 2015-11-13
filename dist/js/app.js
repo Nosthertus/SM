@@ -14,5 +14,6 @@
 			controller: 'LineController',
 			templateUrl: 'views/line/index.html'
 		});
+		$routeProvider.otherwise('/');
 	}]);
 })(angular);
