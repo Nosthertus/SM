@@ -10,5 +10,9 @@
 			controller: 'SiteController',
 			templateUrl: 'views/site/index.html'
 		});
+		$routeProvider.when('/line', {
+			controller: 'LineController',
+			templateUrl: 'views/line/index.html'
+		});
 	}]);
 })(angular);
