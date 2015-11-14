@@ -19,6 +19,8 @@
 			open: false
 		};
 
+		$scope.enabled = true;
+
 		$scope.submit = function(){
 			var signup = {
 				username: $scope.username,
@@ -27,6 +29,8 @@
 				password: $scope.password,
 				dateBirth: getDate($scope.dateBirth)
 			};	
+
+			$scope.enabled = false;
 
 			UserService.register(signup, function(success, errors){
 				if(!success){
@@ -45,6 +49,7 @@
 				}
 
 				$scope.message.show = true;
+				$scope.enabled = true;
 			});
 		};
 

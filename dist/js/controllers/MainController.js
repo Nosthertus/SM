@@ -1,9 +1,13 @@
 (function(angular){
 	var app = angular.module('SM');
 
-	app.controller('MainController', ['$scope', '$location', function($scope, $location){
+	app.controller('MainController', ['$scope', '$location', 'UserService', function($scope, $location, UserService){
 		$scope.navbar = {
-			links: [
+			links: []
+		};
+
+		$scope.$on('UserLogged', function(event){
+			var links = [
 				{
 					route: '/',
 					content: 'home',
@@ -14,22 +18,29 @@
 					content: 'line',
 					active: false
 				}
-			]
-		};
+			];
+
+			$scope.navbar.links = links;
+		});
 
 		$scope.route = function(route){
 			$location.path(route);
 		};
 
 		$scope.$on('$locationChangeSuccess', function(obj, url){
-			for(i in $scope.navbar.links){
-				var link = $scope.navbar.links[i];
+			if(UserService.isGuest)
+				$location.path('/');
 
-				if($location.path() == link.route)
-					link.active = true;
+			else{
+				for(i in $scope.navbar.links){
+					var link = $scope.navbar.links[i];
 
-				else
-					link.active = false;
+					if($location.path() == link.route)
+						link.active = true;
+
+					else
+						link.active = false;
+				}
 			}
 		});
 	}]);
