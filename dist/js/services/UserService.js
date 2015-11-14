@@ -1,20 +1,20 @@
 (function(angular){
 	var app = angular.module('SM');
 
-	app.service('UserService', ['$resource', function($resource){
+	app.service('UserService', ['$resource', '$rootScope', function($resource, $rootScope){
 		var self = this;
 
 		self._data = {
 			id: null,
 			username: null,
-			email: null
+			email: null,
+			authkey: null
 		};
 
-		self.isGuest = function(){
-			if(self._data.id)
-				return false;
+		self.isGuest = true;
 
-			return true;
+		self._populate = function(data){
+			self._data = data;
 		};
 
 		self.login = function(credentials, callback){
@@ -29,7 +29,11 @@
 					callback(data.success, data.errors);
 
 				if(data.success)
-					self.populate(data.data);
+				{
+					self.isGuest = false;
+					self._populate(data.data);
+					$rootScope.$broadcast('UserLogged');
+				}
 			});
 		};
 
@@ -45,10 +49,6 @@
 				if(callback)
 					callback(data.success, data.errors);
 			});
-		};
-
-		self.populate = function(data){
-			self._data = data;
 		};
 	}]);
 })(angular);

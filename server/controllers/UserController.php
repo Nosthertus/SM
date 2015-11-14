@@ -50,7 +50,7 @@ class UserController extends Controller
 
 		if($model->validate())
 		{
-			$response['data'] = User::find(['username'=>$post['LoginForm']['username']])->select(['id', 'username', 'email'])->one();
+			$response['data'] = User::find(['username'=>$post['LoginForm']['username']])->select(['id', 'username', 'email', 'auth_key'])->one();
 
 			$response['success'] = true;
 		}

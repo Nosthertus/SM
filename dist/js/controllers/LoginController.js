@@ -1,7 +1,7 @@
 (function(angular){
 	var app = angular.module('SM');
 
-	app.controller('LoginController', ['$scope', 'UserService', function($scope, UserService){
+	app.controller('LoginController', ['$scope', 'UserService', '$location', function($scope, UserService, $location){
 		$scope.username = null;
 		$scope.password = null;
 
@@ -10,6 +10,8 @@
 			type: 'info',
 			text: ''
 		};
+
+		$scope.enabled = true;
 
 		$scope.submit = function(){
 			
@@ -20,6 +22,8 @@
 
 			if($scope.message.show)
 				$scope.hideMessage();
+
+			$scope.enabled = false;
 
 			UserService.login(login, function(success, errors){
 				if(!success){
@@ -35,9 +39,12 @@
 					$scope.message.text = 'Login successful';
 
 					$scope.message.type = 'success';
+
+					$location.path('/line');
 				}
 
 				$scope.message.show = true;
+				$scope.enabled = true;
 			});
 		};
 
