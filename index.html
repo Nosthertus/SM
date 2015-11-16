@@ -5,7 +5,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<title>Bootstrap 101 Template</title>
+	<title>Social Media Template</title>
 
 	<!-- Bootstrap -->
 	<link href="dist/css/style.css" rel="stylesheet">
@@ -23,9 +23,22 @@
 				<a class="navbar-brand" href>Social Media</a>
 			</div>
 			<div id="navbar" class="collapse navbar-collapse">
+				<!-- navbar left -->
 				<ul class="nav navbar-nav">
-					<li ng-repeat="link in navbar.links" ng-class="{active: link.active}">
+					<li ng-repeat="link in navbar.left" ng-class="{active: link.active}">
 						<a href ng-click="route(link.route)">{{link.content}}</a>
+					</li>
+				</ul>
+
+				<!-- navbar right -->
+				<ul class="nav navbar-nav navbar-right">
+					<li ng-repeat="link in navbar.right" ng-class="{dropdown: link.dropdown}">
+						<a href ng-class="{'dropdown-toggle': link.dropdown}" ng-attr-data-toggle="{{link.dropdown ? 'dropdown': undefined}}">{{link.content}} <i ng-if="link.dropdown" class="fa fa-caret-down"></i></a>
+						<ul ng-if="link.dropdown" class="dropdown-menu">
+							<li ng-repeat="dropdown in link.menu">
+								<a ng-click="route(dropdown.route)">{{dropdown.content}}</a>
+							</li>
+						</ul>
 					</li>
 				</ul>
 			</div><!--/.nav-collapse -->
@@ -54,5 +67,6 @@
 	<script src="dist/js/controllers/SiteController.js"></script>
 	<script src="dist/js/controllers/SignupController.js"></script>
 	<script src="dist/js/controllers/LineController.js"></script>
+	<script src="dist/js/controllers/ProfileController.js"></script>
 </body>
 </html>

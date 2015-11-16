@@ -12,10 +12,14 @@
 		};
 
 		self.isGuest = true;
-
+		
 		self._populate = function(data){
 			self._data = data;
 		};
+
+		self.getName = function(){
+			return self._data.username;
+		}
 
 		self.login = function(credentials, callback){
 			var handler = $resource('server/web/user/access', null, {
