@@ -18,6 +18,18 @@
 			controller: 'ProfileController',
 			templateUrl: 'views/profile/index.html'
 		});
+		$routeProvider.when('/list', {
+			controller: 'ListController',
+			templateUrl: 'views/list/index.html'
+		});
+		$routeProvider.when('/network', {
+			controller: 'networkController',
+			templateUrl: 'views/network/index.html'
+		});
+		$routeProvider.when('/genderbread', {
+			controller: 'GenderbreadController',
+			templateUrl: 'views/genderbread/index.html'
+		});
 		$routeProvider.otherwise('/');
 	}]);
 })(angular);
