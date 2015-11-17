@@ -48,8 +48,8 @@
 				$location.path('/');
 
 			else{
-				for(i in $scope.navbar.links){
-					var link = $scope.navbar.links[i];
+				for(i in $scope.navbar.left){
+					var link = $scope.navbar.left[i];
 
 					if($location.path() == link.route)
 						link.active = true;

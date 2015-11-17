@@ -1,5 +1,5 @@
 (function(angular){
-	var app = angular.module('SM', ['ui.bootstrap', 'ngRoute', 'ngResource']);
+	var app = angular.module('SM', ['ui.bootstrap', 'ngRoute', 'ngResource', 'flow']);
 
 	app.config(['$routeProvider', function($routeProvider){
 		$routeProvider.when('/login', {
