@@ -8809,9 +8809,7 @@ button.close {
   box-sizing: border-box;
 }
 .packery {
-  background: #ffffff;
-  background: rgba(204, 153, 0, 0.2);
-  max-width: 720px;
+  max-width: 870px;
 }
 .packery:after {
   content: ' ';

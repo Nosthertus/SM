@@ -1,37 +1,47 @@
-<div ng-controller="SignupController">
+<div ng-controller="SignupController" class="box2">
 	<div uib-collapse="!message.show">
 		<uib-alert type="{{message.type}}" close="hideMessage()">{{message.text}}</uib-alert>
 	</div>
 	
 	<form ng-submit="submit()">
-		<div class="form-group box1">
-			<label for="username">User Name</label>
-			<input type="text" class="form-control" id="username" placeholder="Username" ng-model="username" ng-disabled="!enabled">
+		<div class="form-group">
+			<div class="input-group">	
+				<div class="input-group-addon"><i class="fa fa-user"></i></div>
+				<input type="text" class="form-control" id="username" placeholder="Username" ng-model="username" ng-disabled="!enabled">
+			</div>
 		</div>
 		
 		<div class="form-group">
-			<label for="lastname">Last name</label>
-			<input type="text" class="form-control" id="lastname" placeholder="Lastname" ng-model="lastname" ng-disabled="!enabled">
+			<div class="input-group">
+				<div class="input-group-addon"><i class="fa fa-users"></i></div>
+				<input type="text" class="form-control" id="lastname" placeholder="Lastname" ng-model="lastname" ng-disabled="!enabled">
+			</div>
 		</div>
 		
 		<div class="form-group">
-			<label for="email">Email</label> 
-			<input type="email" class="form-control" id="email" placeholder="Email" ng-model="email" ng-disabled="!enabled">
+			<div class="input-group">
+				<div class="input-group-addon"><i class="fa fa-envelope-o"></i></div>
+				<input type="email" class="form-control" id="email" placeholder="Email" ng-model="email" ng-disabled="!enabled">
+			</div>
 		</div>
 		
 		<div class="form-group">
-			<label for="password">Password</label>
-			<input type="password" class="form-control" id="password" placeholder="Password" ng-model="password" ng-disabled="!enabled">
+			<div class="input-group">
+				<div class="input-group-addon"><i class="fa fa-key"></i></div>
+				<input type="password" class="form-control" id="password" placeholder="Password" ng-model="password" ng-disabled="!enabled">
+			</div>
 		</div>
 
 		<div class="form-group">
-			<label for="passwordRepeat">Password Repeat</label>
-			<input type="password" class="form-control" id="passwordRepeat" placeholder="PasswordRepeat" ng-model="passwordRepeat" ng-disabled="!enabled">        
+			<div class="input-group">
+				<div class="input-group-addon"><i class="fa fa-key"></i></div>
+				<input type="password" class="form-control" id="passwordRepeat" placeholder="PasswordRepeat" ng-model="passwordRepeat" ng-disabled="!enabled">        
+			</div>
 		</div>
 		
 		<div class="form-group">
-			<label for="data_of_birth">Date of Birth</label>
 			<div class="input-group">
+				<div class="input-group-addon"><i class="fa fa-birthday-cake"></i></div>
 				<input type="text" class="form-control" id="data_of_birth" placeholder="date of birth" ng-model="dateBirth" ng-disabled="!enabled"  uib-datepicker-popup is-open="date.open">
 				<span class="input-group-btn">
 					<button type="button" class="btn btn-default" ng-click="date.open = !date.open"><i class="glyphicon glyphicon-calendar"></i></button>
