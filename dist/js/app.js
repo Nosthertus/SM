@@ -23,7 +23,7 @@
 			templateUrl: 'views/list/index.html'
 		});
 		$routeProvider.when('/network', {
-			controller: 'networkController',
+			controller: 'NetworkController',
 			templateUrl: 'views/network/index.html'
 		});
 		$routeProvider.when('/genderbread', {

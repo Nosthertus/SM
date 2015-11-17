@@ -19,6 +19,16 @@
 						route: '/line',
 						content: 'line',
 						active: false
+					},
+					{
+						route: '/network',
+						content: 'network',
+						active: false
+					},
+					{
+						route: '/list',
+						content: 'list',
+						active: false
 					}
 				],
 				right: [
@@ -29,6 +39,11 @@
 							{
 								route: '/profile',
 								content: 'profile'
+							},
+							{
+								route: '/genderbread',
+								content: 'genderbread',
+								active: false
 							}
 						]
 					}
