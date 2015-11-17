@@ -14,6 +14,10 @@
 			controller: 'LineController',
 			templateUrl: 'views/line/index.html'
 		});
+		$routeProvider.when('/profile', {
+			controller: 'ProfileController',
+			templateUrl: 'views/profile/index.html'
+		});
 		$routeProvider.otherwise('/');
 	}]);
 })(angular);

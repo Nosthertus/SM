@@ -3,24 +3,40 @@
 
 	app.controller('MainController', ['$scope', '$location', 'UserService', function($scope, $location, UserService){
 		$scope.navbar = {
-			links: []
+			left: [],
+			right: []
 		};
 
 		$scope.$on('UserLogged', function(event){
-			var links = [
-				{
-					route: '/',
-					content: 'home',
-					active: true
-				},
-				{
-					route: '/line',
-					content: 'line',
-					active: false
-				}
-			];
+			var links = {
+				left: [
+					{
+						route: '/',
+						content: 'home',
+						active: true
+					},
+					{
+						route: '/line',
+						content: 'line',
+						active: false
+					}
+				],
+				right: [
+					{
+						content: UserService.getName(),
+						dropdown: true,
+						menu: [
+							{
+								route: '/profile',
+								content: 'profile'
+							}
+						]
+					}
+				]
+			};
 
-			$scope.navbar.links = links;
+			$scope.navbar.left = links.left;
+			$scope.navbar.right = links.right;
 		});
 
 		$scope.route = function(route){
