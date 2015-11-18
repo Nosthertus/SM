@@ -19,7 +19,11 @@
 
 		self.getName = function(){
 			return self._data.username;
-		}
+		};
+
+		self.getId = function(){
+			return self._data.id;
+		};
 
 		self.login = function(credentials, callback){
 			var handler = $resource('server/web/user/access', null, {
