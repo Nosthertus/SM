@@ -1,4 +1,4 @@
-<div class="row" flow-init>
+<div class="row" flow-init="{target: 'server/web/upload'}" flow-files-submitted="$flow.upload()" flow-file-success="success($file, $message, $flow)">
 	<div class="col-lg-3">
 		<!--Netwoks & up upload -->
 		<span class="btn" flow-btn flow-attrs="{accept:'image/*'}">Upload File</span>
@@ -24,8 +24,8 @@
 		inyectar el line aca
 
 		<div class="thumbnail" ng-repeat="file in $flow.files">
-			<img flow-img="file" class="img-responsive">
-			   <uib-progressbar max="100" value="100"></uib-progressbar>
+			<img flow-img="file" class="img-responsive preview">
+			   <uib-progressbar max="100" value="file.progress() * 100">{{file.progress() * 100}}</uib-progressbar>
 		</div>
 	</div>
 </div>
