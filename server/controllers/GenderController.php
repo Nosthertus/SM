@@ -66,13 +66,13 @@ Class GenderController extends Controller
 	protected function sort($arr)
 	{
 		return [
-			'genderbread_identity'=>$arr['identity']['value'],
+			'genderbread_identity'=>strval($arr['identity']['value']),
 			'genderbread_identity_visibility'=>$arr['identity']['visibility'],
-			'genderbread_expression'=>$arr['expression']['value'],
+			'genderbread_expression'=>strval($arr['expression']['value']),
 			'genderbread_expression_visibility'=>$arr['expression']['visibility'],
-			'genderbread_asex'=>$arr['asex']['value'],
+			'genderbread_asex'=>strval($arr['asex']['value']),
 			'genderbread_asex_visibility'=>$arr['asex']['visibility'],
-			'genderbread_attracted'=>$arr['attracted']['value'],
+			'genderbread_attracted'=>strval($arr['attracted']['value']),
 			'genderbread_attracted_visibility'=>$arr['attracted']['visibility']
 		];
 	}
