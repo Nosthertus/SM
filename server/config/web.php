@@ -32,7 +32,7 @@ $config = [
                     'extraPatterns'=>[
                         'POST access'=>'access'
                     ],
-                    'controller' => ['user', 'account', 'upload'],
+                    'controller' => ['user', 'account', 'upload', 'gender'],
                 ],
             ],
         ],
