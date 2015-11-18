@@ -4,6 +4,11 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 @font-face {
+  font-family: 'quicks';
+  src: url('../fonts/quicks-regular-webfont.eot');
+  src: url('../fonts/quicks-regular-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/quicks-regular-webfont.woff2') format('woff2'), url('../fonts/quicks-regular-webfont.woff') format('woff'), url('../fonts/quicks-regular-webfont.ttf') format('truetype'), url('../fonts/quicks-regular-webfont.svg#glyphicons_halflingsregular') format('svg');
+}
+@font-face {
   font-family: 'KaushanScript';
   src: url('../fonts/kaushanscript-regular-webfont.eot');
   src: url('../fonts/kaushanscript-regular-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/kaushanscript-regular-webfont.woff2') format('woff2'), url('../fonts/kaushanscript-regular-webfont.woff') format('woff'), url('../fonts/kaushanscript-regular-webfont.ttf') format('truetype'), url('../fonts/kaushanscript-regular-webfont.svg#glyphicons_halflingsregular') format('svg');
@@ -3102,7 +3107,7 @@ html {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 body {
-  font-family: KaushanScript, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: quicks, "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
   line-height: 1.42857143;
   color: #333333;
@@ -3204,7 +3209,7 @@ h6,
 .h4,
 .h5,
 .h6 {
-  font-family: inherit;
+  font-family: KaushanScript, Georgia, "Times New Roman", Times, serif;
   font-weight: 500;
   line-height: 1.1;
   color: inherit;
@@ -6331,6 +6336,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   border-width: 1px 0 0;
 }
 .navbar-brand {
+  font-family: KaushanScript, Georgia, "Times New Roman", Times, serif;
   float: left;
   padding: 15px 15px;
   font-size: 18px;
@@ -8040,7 +8046,7 @@ button.close {
   position: absolute;
   z-index: 1070;
   display: block;
-  font-family: KaushanScript, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: quicks, "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-style: normal;
   font-weight: normal;
   letter-spacing: normal;
@@ -8158,7 +8164,7 @@ button.close {
   display: none;
   max-width: 276px;
   padding: 1px;
-  font-family: KaushanScript, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: quicks, "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-style: normal;
   font-weight: normal;
   letter-spacing: normal;
@@ -8826,6 +8832,10 @@ button.close {
   border-color: white;
   cursor: pointer;
 }
+.item > img {
+  width: inherit;
+  height: inherit;
+}
 .item.z1 {
   width: 150px;
   height: 150px;
@@ -8860,7 +8870,7 @@ button.close {
   padding-top: 70px;
 }
 .box4 {
-  padding-top: 40px;
+  padding-top: 100px;
 }
 .box3 {
   padding-top: 30px;
