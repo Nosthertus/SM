@@ -1,26 +1,63 @@
 <div class="row">
-  <div class="col-lg-1">
-    <!-- Margin -->
-  </div>
+    <h1>
+      Select your configuration of sexuality and your Privacy
+    </h1>
+</div>
+<div class="row">
   <div class="col-lg-6">
     <!-- Static Image -->
-
+    <div class="box4"></div>
     <img src="dist/img/genderbread.jpg">
   </div>
-  <div class="col-lg-4">
+  <div class="col-lg-6">
     <!-- Rating & Buttons Components of ui.bootstrap-->
-    Rating para los campos
+
+<!--
       gerderbread_identity
       gerderbread_experssion
       gerderbread_asex
       gerderbread_attracted  
-    Buttons
+-->   
+    <h1>Identity</h1>
+    <img src="dist/img/identity.jpg">
+    <div ng-init="x = 4"><uib-rating ng-model="x" max="7" state-on="'glyphicon-heart'" state-off="'glyphicon-heart-empty'" aria-labelledby="custom-icons-1"></uib-rating> <b>(<i>Rate:</i> {{x}})</b></div>
+    <div class="btn-group">
+      <label class="btn btn-success" ng-model="identityv" uib-btn-radio="'Private'" uncheckable>Private</label>
+      <label class="btn btn-success" ng-model="identityv" uib-btn-radio="'Protected'" uncheckable>Protected</label>
+      <label class="btn btn-success" ng-model="identityv" uib-btn-radio="'Public'" uncheckable>Public</label>
+    </div>
+    
+    <h1>Expression</h1>
+    <img src="dist/img/expression.jpg">
+    <div ng-init="x = 4"><uib-rating ng-model="x" max="7" state-on="'glyphicon-heart'" state-off="'glyphicon-heart-empty'" aria-labelledby="custom-icons-1"></uib-rating> <b>(<i>Rate:</i> {{x}})</b></div>
+    <div class="btn-group">
+      <label class="btn btn-success" ng-model="expressionv" uib-btn-radio="'Private'" uncheckable>Private</label>
+      <label class="btn btn-success" ng-model="expressionv" uib-btn-radio="'Protected'" uncheckable>Protected</label>
+      <label class="btn btn-success" ng-model="expressionv" uib-btn-radio="'Public'" uncheckable>Public</label>
+    </div>
+    
+    <h1>Asex</h1>
+    <img src="dist/img/sex.jpg">
+    <div ng-init="x = 4"><uib-rating ng-model="x" max="7" state-on="'glyphicon-heart'" state-off="'glyphicon-heart-empty'" aria-labelledby="custom-icons-1"></uib-rating> <b>(<i>Rate:</i> {{x}})</b></div>
+    <div class="btn-group">
+      <label class="btn btn-success" ng-model="asexv" uib-btn-radio="'Private'" uncheckable>Private</label>
+      <label class="btn btn-success" ng-model="asexv" uib-btn-radio="'Protected'" uncheckable>Protected</label>
+      <label class="btn btn-success" ng-model="asexv" uib-btn-radio="'Public'" uncheckable>Public</label>
+    </div>
+    
+    <h1>Atrracted</h1>
+    <img src="dist/img/orientation.jpg">
+    <div ng-init="x = 4"><uib-rating ng-model="x" max="7" state-on="'glyphicon-heart'" state-off="'glyphicon-heart-empty'" aria-labelledby="custom-icons-1"></uib-rating> <b>(<i>Rate:</i> {{x}})</b></div>
+    <div class="btn-group">
+      <label class="btn btn-success" ng-model="attractedv" uib-btn-radio="'Private'" uncheckable>Private</label>
+      <label class="btn btn-success" ng-model="attractedv" uib-btn-radio="'Protected'" uncheckable>Protected</label>
+      <label class="btn btn-success" ng-model="attractedv" uib-btn-radio="'Public'" uncheckable>Public</label>
+    </div>
+<!--    
       gerderbread_identity_visibility
       gerderbread_experssion_visibility
       gerderbread_asex_visibility
       gerderbread_attracted_visibility
-  </div>
-  <div class="col-md-1">
-    <!-- Margin-->
+ --> 
   </div>
 </div>
