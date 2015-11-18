@@ -1,11 +1,49 @@
 <div class="row">
-  <div class="col-lg-9">
-  <!-- LayoutComplete Component of Packery -->
-  </div>
-  <div class="col-lg-1">
-    <!-- Margin -->
+  <h1 class="text-center box">Packery demo - layoutComplete event</h1>
+</div>
+<div class="row">
+  <div class="col-lg-10"> 
+   <!-- LayoutComplete Component of Packery -->
+    <div class="packery">
+      <div class="item z1"><img src="http://placekitten.com/600/340"></div>
+      <div class="item z2"><img src="http://placekitten.com/600/341"></div>
+      <div class="item z3"><img src="http://placekitten.com/600/342"></div>
+      <div class="item z1"><img src="http://placekitten.com/600/343"></div>
+      <div class="item z2"><img src="http://placekitten.com/600/344"></div>
+      <div class="item z3"><img src="http://placekitten.com/600/345"></div>
+      <div class="item z1"><img src="http://placekitten.com/600/346"></div>
+      <div class="item z2"><img src="http://placekitten.com/600/347"></div>
+      <div class="item z3"><img src="http://placekitten.com/600/348"></div>
+      <div class="item z1"><img src="http://placekitten.com/600/349"></div>
+      <div class="item z2"><img src="http://placekitten.com/600/360"></div>
+      <div class="item z3"><img src="http://placekitten.com/600/351"></div>
+      <div class="item z1"><img src="http://placekitten.com/600/352"></div>
+      <div class="item z2"><img src="http://placekitten.com/600/353"></div>
+      <div class="item z3"><img src="http://placekitten.com/600/354"></div>
+      <div class="item z1"><img src="http://placekitten.com/600/355"></div>
+      <div class="item z2"><img src="http://placekitten.com/600/356"></div>
+      <div class="item z3"><img src="http://placekitten.com/600/357"></div>
+      <div class="item z1"><img src="http://placekitten.com/600/358"></div>
+      <div class="item z2"><img src="http://placekitten.com/600/359"></div>
+    </div>
   </div>
   <div class="col-lg-2">
     <!-- Accordion Component of angular bootstrap -->
+
+      <h4>Asynchronous results</h4>
+    <pre>Model: {{asyncSelected | json}}</pre>
+    <input type="text" ng-model="asyncSelected" placeholder="Locations loaded via $http" uib-typeahead="address for address in getLocation($viewValue)" typeahead-loading="loadingLocations" typeahead-no-results="noResults" class="form-control">
+    <i ng-show="loadingLocations" class="glyphicon glyphicon-refresh"></i>
+    <div ng-show="noResults">
+      <i class="glyphicon glyphicon-remove"></i> No Results Found
+    </div>
+    <!-- Localizacion del botton en estatus disable, de agregar amigo-->
+  <uib-tabset vertical="true" type="pills">
+    <uib-tab heading="Vertical 1">Vertical content 1</uib-tab>
+    <uib-tab heading="Vertical 2">Vertical content 2</uib-tab>
+  </uib-tabset>    
   </div>
 </div>
+</div>
+<!-- La llamada asincronica de la linea 36 debe compararse con la tabla network el campo network_name, de conseguir aciertos habilitar boton de agregar amigos. Cuando se presiones le boton se crea un nuevo  ui-tab con heding y label del nombre del nuevo amigo a mostrar. Si no se consigue record en la bd el activar el boton de crear network el cual guardara el record en la bd y agregara un ui-tab con heding y label del nombre del nuevo network a mostrar -->
+<script type="text/javascript" src="dist/js/layout.js"></script>

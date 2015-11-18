@@ -8825,8 +8825,6 @@ button.close {
 /* clearfix */
 .item {
   float: left;
-  border: 4px solid #333;
-  border-color: rgba(0, 0, 0, 0.3);
 }
 .item:hover {
   border-color: white;
@@ -8839,17 +8837,14 @@ button.close {
 .item.z1 {
   width: 150px;
   height: 150px;
-  background: #C09;
 }
 .item.z2 {
   width: 240px;
   height: 150px;
-  background: #9C0;
 }
 .item.z3 {
   width: 204px;
   height: 204px;
-  background: #C90;
 }
 .item.a1 {
   width: 200px;
@@ -8878,6 +8873,6 @@ button.close {
 .box2 {
   padding-top: 20px;
 }
-.box1 {
-  padding-top: 10px;
+.box {
+  padding-bottom: 40px;
 }

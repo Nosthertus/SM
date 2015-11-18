@@ -1,27 +1,30 @@
+<div class="row">
+  <h1 class="text-center box"> what's the new {{name}}?</h1>
+</div>
 <div class="row" flow-init="{target: 'server/web/upload'}" flow-files-submitted="$flow.upload()" flow-file-success="success($file, $message, $flow)">
-	<div class="col-lg-3">
-		<!--Netwoks & up upload -->
-		<span class="btn" flow-btn flow-attrs="{accept:'image/*'}">Upload File</span>
-		<uib-accordion>
-			<uib-accordion-group heading="Friends" is-open="true">
-					<ul>
-						<li>
-							OBJECT MEDIA CON NG-REPET
-						</li>
-					</ul> 
-			</uib-accordion-group>
-			<uib-accordion-group heading="Networks">
-					<ul>
-						<li>
-							object media con ng-repet
-						</li>
-					</ul>
-			</uib-accordion-group>
-		</uib-accordion>
-	</div>
-	<div class="col-lg-9">
-		<!-- Owner galery -->
-		inyectar el line aca
+  <div class="col-lg-3">
+    <!--Netwoks & up upload -->
+    <span class="btn" flow-btn flow-attrs="{accept:'image/*'}">Upload File</span>
+    <uib-accordion>
+      <uib-accordion-group heading="Friends" is-open="true">
+          <ul>
+            <li>
+              OBJECT MEDIA CON NG-REPET
+            </li>
+          </ul> 
+      </uib-accordion-group>
+      <uib-accordion-group heading="Networks">
+          <ul>
+            <li>
+              object media con ng-repet
+            </li>
+          </ul>
+      </uib-accordion-group>
+    </uib-accordion>
+  </div>
+  <div class="col-lg-9">
+    <!-- Owner galery -->
+    inyectar el line aca
 
 		<div class="thumbnail" ng-repeat="file in $flow.files">
 			<img flow-img="file" class="img-responsive preview">
