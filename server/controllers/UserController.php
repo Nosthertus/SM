@@ -9,6 +9,7 @@ use yii\web\Response;
 use app\models\User;
 use app\models\LoginForm;
 use app\models\SignupForm;
+use app\models\UserHasUser;
 
 class UserController extends Controller
 {
@@ -26,6 +27,11 @@ class UserController extends Controller
 
 	public function actionIndex()
 	{
+		$get = Yii::$app->request->get();
+
+		if(isset($get['find']))
+			return User::find()->where(['like', 'username', $get['find']])->all();
+
 		return User::find()->all();
 	}
 
@@ -79,6 +85,30 @@ class UserController extends Controller
 
 			$response['success'] = true;
 		}
+
+		else
+			$response['errors'] = $model->getErrors();
+
+		return $response;
+	}
+
+	public function actionAdd()
+	{
+		$response = [
+			'success'=>false,
+			'errors'=>[]
+		];
+
+		$model = new UserHasUser();
+
+		$get = ['UserHasUser'=>Yii::$app->request->get()];
+
+		$get['UserHasUser']['user_id1'] = User::find()->where(['username'=>$get['UserHasUser']['user_id1']])->one()->id;
+
+		$model->load($get);
+
+		if($model->save())
+			$response['success'] = true;
 
 		else
 			$response['errors'] = $model->getErrors();
