@@ -8834,10 +8834,6 @@ button.close {
   width: inherit;
   height: inherit;
 }
-.item > border3 {
-  width: inherit;
-  height: inherit;
-}
 .item.z1 {
   width: 150px;
   height: 150px;
