@@ -8833,13 +8833,10 @@ button.close {
 .item > img {
   width: inherit;
   height: inherit;
-  z-index: 1;
 }
 .item > border3 {
-  width: 30px;
+  width: inherit;
   height: inherit;
-  background-color: DB1D1D;
-  z-index: 2;
 }
 .item.z1 {
   width: 150px;
