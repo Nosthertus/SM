@@ -8,6 +8,7 @@ $(function(){
 	$container.on( 'click', '.item', function(event){
 		if($(event.target).parent().hasClass('z1')){
 			$(event.target).parent().toggleClass('a1');
+
 		}
 
 		if($(event.target).parent().hasClass('z2')){

@@ -8833,26 +8833,33 @@ button.close {
 .item > img {
   width: inherit;
   height: inherit;
+  z-index: 1;
+}
+.item > border3 {
+  width: 30px;
+  height: inherit;
+  background-color: DB1D1D;
+  z-index: 2;
 }
 .item.z1 {
   width: 150px;
   height: 150px;
 }
-.item.z2 {
-  width: 240px;
-  height: 150px;
-}
-.item.z3 {
-  width: 204px;
-  height: 204px;
-}
 .item.a1 {
   width: 200px;
   height: 200px;
 }
+.item.z2 {
+  width: 240px;
+  height: 150px;
+}
 .item.a2 {
   width: 400px;
   height: 200px;
+}
+.item.z3 {
+  width: 204px;
+  height: 204px;
 }
 .item.a3 {
   width: 510px;
