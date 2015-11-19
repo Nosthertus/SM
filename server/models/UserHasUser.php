@@ -63,10 +63,10 @@ class UserHasUser extends \yii\db\ActiveRecord
 
     /**
      * @inheritdoc
-     * @return UserHasUserQuery the active query used by this AR class.
+     * @return \app\models\query\UserHasUserQuery the active query used by this AR class.
      */
     public static function find()
     {
-        return new UserHasUserQuery(get_called_class());
+        return new \app\models\query\UserHasUserQuery(get_called_class());
     }
 }

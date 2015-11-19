@@ -5,22 +5,22 @@ namespace app\models;
 use Yii;
 
 /**
- * This is the model class for table "user_has_photos".
+ * This is the model class for table "network_has_photos".
  *
- * @property string $user_id
+ * @property string $network_id
  * @property string $photos_id
  *
- * @property User $user
+ * @property Network $network
  * @property Photos $photos
  */
-class UserHasPhotos extends \yii\db\ActiveRecord
+class NetworkHasPhotos extends \yii\db\ActiveRecord
 {
     /**
      * @inheritdoc
      */
     public static function tableName()
     {
-        return 'user_has_photos';
+        return 'network_has_photos';
     }
 
     /**
@@ -29,8 +29,8 @@ class UserHasPhotos extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['user_id', 'photos_id'], 'required'],
-            [['user_id', 'photos_id'], 'integer']
+            [['network_id', 'photos_id'], 'required'],
+            [['network_id', 'photos_id'], 'integer']
         ];
     }
 
@@ -40,7 +40,7 @@ class UserHasPhotos extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'user_id' => 'User ID',
+            'network_id' => 'Network ID',
             'photos_id' => 'Photos ID',
         ];
     }
@@ -48,9 +48,9 @@ class UserHasPhotos extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getUser()
+    public function getNetwork()
     {
-        return $this->hasOne(User::className(), ['id' => 'user_id']);
+        return $this->hasOne(Network::className(), ['id' => 'network_id']);
     }
 
     /**
@@ -63,10 +63,10 @@ class UserHasPhotos extends \yii\db\ActiveRecord
 
     /**
      * @inheritdoc
-     * @return \app\models\query\UserHasPhotosQuery the active query used by this AR class.
+     * @return \app\models\query\NetworkHasPhotosQuery the active query used by this AR class.
      */
     public static function find()
     {
-        return new \app\models\query\UserHasPhotosQuery(get_called_class());
+        return new \app\models\query\NetworkHasPhotosQuery(get_called_class());
     }
 }

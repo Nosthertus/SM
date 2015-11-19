@@ -15,9 +15,14 @@ use Yii;
  * @property string $photos_time
  * @property string $accounts_id
  *
+ * @property NetworkHasPhotos[] $networkHasPhotos
+ * @property Network[] $networks
  * @property Accounts $accounts
+ * @property PhotosHasMessages[] $photosHasMessages
+ * @property Messages[] $messages
  * @property UserHasPhotos[] $userHasPhotos
  * @property User[] $users
+ * @property UserHasTypes1[] $userHasTypes1s
  */
 class Photos extends \yii\db\ActiveRecord
 {
@@ -62,9 +67,41 @@ class Photos extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
+    public function getNetworkHasPhotos()
+    {
+        return $this->hasMany(NetworkHasPhotos::className(), ['photos_id' => 'id']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getNetworks()
+    {
+        return $this->hasMany(Network::className(), ['id' => 'network_id'])->viaTable('network_has_photos', ['photos_id' => 'id']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
     public function getAccounts()
     {
         return $this->hasOne(Accounts::className(), ['id' => 'accounts_id']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getPhotosHasMessages()
+    {
+        return $this->hasMany(PhotosHasMessages::className(), ['photos_id' => 'id']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getMessages()
+    {
+        return $this->hasMany(Messages::className(), ['id' => 'messages_id'])->viaTable('photos_has_messages', ['photos_id' => 'id']);
     }
 
     /**
@@ -81,6 +118,14 @@ class Photos extends \yii\db\ActiveRecord
     public function getUsers()
     {
         return $this->hasMany(User::className(), ['id' => 'user_id'])->viaTable('user_has_photos', ['photos_id' => 'id']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getUserHasTypes1s()
+    {
+        return $this->hasMany(UserHasTypes1::className(), ['photos_id' => 'id']);
     }
 
     /**

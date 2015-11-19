@@ -12,11 +12,10 @@ use Yii;
  * @property string $accounts_registered
  * @property string $accounts_cancelled
  * @property string $user_id
- * @property string $network_id
  *
  * @property User $user
- * @property Network $network
  * @property Messages[] $messages
+ * @property Network[] $networks
  * @property Photos[] $photos
  */
 class Accounts extends \yii\db\ActiveRecord
@@ -35,10 +34,10 @@ class Accounts extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['accounts_status', 'accounts_registered', 'user_id', 'network_id'], 'required'],
+            [['accounts_status', 'accounts_registered', 'user_id'], 'required'],
             [['accounts_status'], 'string'],
             [['accounts_registered', 'accounts_cancelled'], 'safe'],
-            [['user_id', 'network_id'], 'integer']
+            [['user_id'], 'integer']
         ];
     }
 
@@ -53,7 +52,6 @@ class Accounts extends \yii\db\ActiveRecord
             'accounts_registered' => 'Accounts Registered',
             'accounts_cancelled' => 'Accounts Cancelled',
             'user_id' => 'User ID',
-            'network_id' => 'Network ID',
         ];
     }
 
@@ -68,17 +66,17 @@ class Accounts extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getNetwork()
+    public function getMessages()
     {
-        return $this->hasOne(Network::className(), ['id' => 'network_id']);
+        return $this->hasMany(Messages::className(), ['accounts_id' => 'id']);
     }
 
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getMessages()
+    public function getNetworks()
     {
-        return $this->hasMany(Messages::className(), ['accounts_id' => 'id']);
+        return $this->hasMany(Network::className(), ['accounts_id' => 'id']);
     }
 
     /**

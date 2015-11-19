@@ -5,22 +5,22 @@ namespace app\models;
 use Yii;
 
 /**
- * This is the model class for table "user_has_messages".
+ * This is the model class for table "photos_has_messages".
  *
- * @property string $user_id
+ * @property string $photos_id
  * @property string $messages_id
  *
- * @property User $user
+ * @property Photos $photos
  * @property Messages $messages
  */
-class UserHasMessages extends \yii\db\ActiveRecord
+class PhotosHasMessages extends \yii\db\ActiveRecord
 {
     /**
      * @inheritdoc
      */
     public static function tableName()
     {
-        return 'user_has_messages';
+        return 'photos_has_messages';
     }
 
     /**
@@ -29,8 +29,8 @@ class UserHasMessages extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['user_id', 'messages_id'], 'required'],
-            [['user_id', 'messages_id'], 'integer']
+            [['photos_id', 'messages_id'], 'required'],
+            [['photos_id', 'messages_id'], 'integer']
         ];
     }
 
@@ -40,7 +40,7 @@ class UserHasMessages extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'user_id' => 'User ID',
+            'photos_id' => 'Photos ID',
             'messages_id' => 'Messages ID',
         ];
     }
@@ -48,9 +48,9 @@ class UserHasMessages extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getUser()
+    public function getPhotos()
     {
-        return $this->hasOne(User::className(), ['id' => 'user_id']);
+        return $this->hasOne(Photos::className(), ['id' => 'photos_id']);
     }
 
     /**
@@ -63,10 +63,10 @@ class UserHasMessages extends \yii\db\ActiveRecord
 
     /**
      * @inheritdoc
-     * @return \app\models\query\UserHasMessagesQuery the active query used by this AR class.
+     * @return \app\models\query\PhotosHasMessagesQuery the active query used by this AR class.
      */
     public static function find()
     {
-        return new \app\models\query\UserHasMessagesQuery(get_called_class());
+        return new \app\models\query\PhotosHasMessagesQuery(get_called_class());
     }
 }

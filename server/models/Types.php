@@ -10,8 +10,10 @@ use Yii;
  * @property string $id
  * @property string $types_object
  *
- * @property UserHasMessages[] $userHasMessages
- * @property UserHasPhotos[] $userHasPhotos
+ * @property UserHasTypes[] $userHasTypes
+ * @property User[] $users
+ * @property UserHasTypes1[] $userHasTypes1s
+ * @property User[] $users0
  */
 class Types extends \yii\db\ActiveRecord
 {
@@ -48,17 +50,33 @@ class Types extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getUserHasMessages()
+    public function getUserHasTypes()
     {
-        return $this->hasMany(UserHasMessages::className(), ['types_id' => 'id']);
+        return $this->hasMany(UserHasTypes::className(), ['types_id' => 'id']);
     }
 
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getUserHasPhotos()
+    public function getUsers()
     {
-        return $this->hasMany(UserHasPhotos::className(), ['types_id' => 'id']);
+        return $this->hasMany(User::className(), ['id' => 'user_id'])->viaTable('user_has_types', ['types_id' => 'id']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getUserHasTypes1s()
+    {
+        return $this->hasMany(UserHasTypes1::className(), ['types_id' => 'id']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getUsers0()
+    {
+        return $this->hasMany(User::className(), ['id' => 'user_id'])->viaTable('user_has_types1', ['types_id' => 'id']);
     }
 
     /**

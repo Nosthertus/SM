@@ -5,22 +5,24 @@ namespace app\models;
 use Yii;
 
 /**
- * This is the model class for table "user_has_photos".
+ * This is the model class for table "user_has_types1".
  *
  * @property string $user_id
+ * @property string $types_id
  * @property string $photos_id
  *
  * @property User $user
+ * @property Types $types
  * @property Photos $photos
  */
-class UserHasPhotos extends \yii\db\ActiveRecord
+class UserHasTypes1 extends \yii\db\ActiveRecord
 {
     /**
      * @inheritdoc
      */
     public static function tableName()
     {
-        return 'user_has_photos';
+        return 'user_has_types1';
     }
 
     /**
@@ -29,8 +31,8 @@ class UserHasPhotos extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['user_id', 'photos_id'], 'required'],
-            [['user_id', 'photos_id'], 'integer']
+            [['user_id', 'types_id', 'photos_id'], 'required'],
+            [['user_id', 'types_id', 'photos_id'], 'integer']
         ];
     }
 
@@ -41,6 +43,7 @@ class UserHasPhotos extends \yii\db\ActiveRecord
     {
         return [
             'user_id' => 'User ID',
+            'types_id' => 'Types ID',
             'photos_id' => 'Photos ID',
         ];
     }
@@ -56,6 +59,14 @@ class UserHasPhotos extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
+    public function getTypes()
+    {
+        return $this->hasOne(Types::className(), ['id' => 'types_id']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
     public function getPhotos()
     {
         return $this->hasOne(Photos::className(), ['id' => 'photos_id']);
@@ -63,10 +74,10 @@ class UserHasPhotos extends \yii\db\ActiveRecord
 
     /**
      * @inheritdoc
-     * @return \app\models\query\UserHasPhotosQuery the active query used by this AR class.
+     * @return \app\models\query\UserHasTypes1Query the active query used by this AR class.
      */
     public static function find()
     {
-        return new \app\models\query\UserHasPhotosQuery(get_called_class());
+        return new \app\models\query\UserHasTypes1Query(get_called_class());
     }
 }

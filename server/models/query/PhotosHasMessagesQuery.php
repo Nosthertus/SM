@@ -1,13 +1,13 @@
 <?php
 
-namespace app\models;
+namespace app\models\query;
 
 /**
- * This is the ActiveQuery class for [[UserHasUser]].
+ * This is the ActiveQuery class for [[\app\models\PhotosHasMessages]].
  *
- * @see UserHasUser
+ * @see \app\models\PhotosHasMessages
  */
-class UserHasUserQuery extends \yii\db\ActiveQuery
+class PhotosHasMessagesQuery extends \yii\db\ActiveQuery
 {
     /*public function active()
     {
@@ -17,7 +17,7 @@ class UserHasUserQuery extends \yii\db\ActiveQuery
 
     /**
      * @inheritdoc
-     * @return UserHasUser[]|array
+     * @return \app\models\PhotosHasMessages[]|array
      */
     public function all($db = null)
     {
@@ -26,7 +26,7 @@ class UserHasUserQuery extends \yii\db\ActiveQuery
 
     /**
      * @inheritdoc
-     * @return UserHasUser|array|null
+     * @return \app\models\PhotosHasMessages|array|null
      */
     public function one($db = null)
     {
