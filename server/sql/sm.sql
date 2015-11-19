@@ -17,13 +17,6 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 CREATE SCHEMA IF NOT EXISTS `SM` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ;
 USE `SM` ;
 
--- -----------------------------------------------------
--- Table `SM`.`table1`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `SM`.`table1` (
-)
-ENGINE = InnoDB;
-
 
 -- -----------------------------------------------------
 -- Table `SM`.`genderbread`
@@ -90,8 +83,8 @@ DEFAULT CHARACTER SET = utf8;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `SM`.`accounts` (
   `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
-  `accounts_status` ENUM('Active', 'Cancel', 'Suspend', 'Disable') NOT NULL DEFAULT 'Active',
-  `accounts_registered` DATE NOT NULL DEFAULT NOW(),
+  `accounts_status` ENUM('Active', 'Cancel', 'Suspend', 'Disable') NOT NULL,
+  `accounts_registered` DATE NOT NULL,
   `accounts_cancelled` DATE NULL,
   `user_id` INT(11) UNSIGNED NOT NULL,
   PRIMARY KEY (`id`),
