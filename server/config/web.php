@@ -30,7 +30,8 @@ $config = [
                     'class' => 'yii\rest\UrlRule',
                     'pluralize'=>false, 
                     'extraPatterns'=>[
-                        'POST access'=>'access'
+                        'POST access'=>'access',
+                        'GET add'=>'add'
                     ],
                     'controller' => ['user', 'account', 'upload', 'gender'],
                 ],
